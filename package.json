@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/cfprice3/BurgerEatingApp/issues"
   },
-  "homepage": "https://github.com/cfprice3/BurgerEatingApp#readme"
+  "homepage": "https://github.com/cfprice3/BurgerEatingApp#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
+    "mysql": "^2.18.1"
+  }
 }
