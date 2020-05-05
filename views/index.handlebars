@@ -1,81 +1,48 @@
-{{!-- <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Eat da Burger!</h1>
-    <p class="lead">Create your own burger, add it to the list, then gobble it up!.</p>
-  </div>
-</div>
 
+<div class="jumbotron header-bg"> 
+    {{!-- #fac126; --}}
+    <h1>Eat-Da-Burger</h1>
+</div>
 <div class="container">
-    <div class = "row">
-        <div class=" col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <h2 class="header">Burgers to Eat</h2>
+            {{#each burger}}
+                {{#unless this.eaten}}
+                    <form action="api/burgers/update/{{this.id}}?_method=PUT" method="PUT">
+                        <div class="form-group">
+                            <ul>
+                                <li>
+                                    <button type="submit" name="eaten" value="1" class="btn btn-yellow">{{burger_name}}</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                {{/unless}}
+            {{/each}}
         </div>
-        <div class=" col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="col-lg-4 text-center">
+            <img class="mb-3" src="">
+            <form action="/api/burgers/create" method="POST">
+                <div class="form-group">
+                    <input type="text" name="burger_name" class="form-control text-center" maxlength="50" placeholder="Enter Burger Name">
+                    <button class="btn btn-red btn-block my-2" type="submit">Add Burger</button>
                 </div>
-            </div>
+            </form>
         </div>
-        <div class=" col-sm-4">
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+        <div class="col-lg-4">
+            <h2 class="header">Burgers Eaten</h2>
+            {{#each burger}}
+                {{#if this.eaten}}
+                    <div>
+                        <ul>
+                            <li>
+                                <button disabled class="btn btn-yellow">{{burger_name}}</button>
+                            </li>
+                        </ul>
+                    </div>
+                {{/if}}
+            {{/each}}
         </div>
     </div>
-</div> --}}
-
-
-<h1>Cats!</h1>
-
-<h2>Cats that are not sleepy!</h2>
-
-<ul>
-  {{#each burger}}
-    {{#unless eaten}}
-      {{this.burger_name}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Cats that are sleepy!</h2>
-
-<ul>
-  {{#each burger}}
-    {{#if eaten}}
-      {{this.burger_name}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div>
-
-  <button type="submit">Add Cat</button>
-</form>
+</div>
