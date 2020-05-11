@@ -15,9 +15,9 @@ A burger logger created with MySQL, Node, Express, Handlebars and a homemade ORM
 This is a Fun "Burger Creator/Eating" application using node, express, express handlebars, and SQL to build a simple add and update database application.
 
 
-![ScreenShot](assets/img/screenshot.png)
+![ScreenShot](public/assets/img/screenshot.png)
 
-![Gif Example](assets/img/burgergif.gif)
+![Gif Example](public/assets/img/burgergif.gif)
 
 
  ## **Table of Contents**
