@@ -8,10 +8,9 @@
 ul {
     list-style-type: none;    
 }
-img {
-    max-height:200px;
-}
+
 .btn-yellow {
+    margin-bottom: 15px;
     background-color:#fac126;
     color:white;
 }
