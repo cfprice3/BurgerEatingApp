@@ -9,14 +9,15 @@
             <h2 class="header">Burgers to Eat</h2>
             {{#each burger}}
                 {{#unless this.eaten}}
-                    <form action="api/burgers/update/{{this.id}}?_method=PUT" method="PUT">
-                        <div class="form-group">
-                            <ul>
-                                <li>
+                    <form class= "eaten_form">
+                        {{!-- <div class="form-group"> --}}
+                            {{!-- <ul>
+                                <li> --}}
+                                    <input type= "hidden" class= "burger_id" value ={{this.id}}>
                                     <button type="submit" name="eaten" value="1" class="btn btn-yellow">{{burger_name}}</button>
-                                </li>
-                            </ul>
-                        </div>
+                                {{!-- </li>
+                            </ul> --}}
+                        {{!-- </div> --}}
                     </form>
                 {{/unless}}
             {{/each}}
@@ -37,7 +38,7 @@
                     <div>
                         <ul>
                             <li>
-                                <button disabled class="btn btn-yellow">{{burger_name}}</button>
+                                <button class="btn btn-green">{{burger_name}}</button>
                             </li>
                         </ul>
                     </div>

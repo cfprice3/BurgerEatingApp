@@ -13,15 +13,17 @@ router.get("/", function(req, res){
 
 router.post("/api/burgers/create", function (req, res){
     burger.addB(["burger_name", "eaten"], [req.body.burger_name, req.body.eaten], function(result){
-        res.json({ id: result.addId });
+        res.redirect("/");
     });
 });
 
 router.put("/api/burgers/update/:id", function(req, res){
-    var status = "id" + req.params.id;
-    console.log("status", status);
+    console.log("working")
+    // var status = "id" + req.params.id;
+    // console.log("status", status);
 
-    burger.updateB({ eaten: req.body.eaten }, status, function(result){
+    burger.updateB(req.params.id, function(result){
+        console.log("UPDATED!!!!!")
         if (result.changedRows === 0) {
             return res.status(404).end();
         } else {
